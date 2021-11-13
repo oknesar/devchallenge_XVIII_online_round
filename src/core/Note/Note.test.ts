@@ -144,4 +144,9 @@ describe('Note', () => {
       expect(note.getFrequency()).toBeLessThanOrEqual(expected + 0.1)
     }
   })
+
+  test('Pause has no frequency', () => {
+    const pause = new Note('_/1')
+    expect(pause.getFrequency()).toBe(0)
+  })
 })

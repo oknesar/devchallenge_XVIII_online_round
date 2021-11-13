@@ -5,11 +5,11 @@ export default class Note {
   protected length: number
   protected frequency: number
 
-  constructor(spec: string) {
-    const [name, length] = spec.split('/')
+  constructor(private notation: string) {
+    const [name, length] = notation.split('/')
     this.name = name
     this.length = (1 / parseInt(length)) * (length.endsWith('.') ? 1.5 : 1)
-    this.frequency = getNoteFrequency(this.name)
+    this.frequency = this.name === '_' ? 0 : getNoteFrequency(this.name)
   }
 
   getName() {
@@ -22,5 +22,9 @@ export default class Note {
 
   getFrequency() {
     return this.frequency
+  }
+
+  toString() {
+    return this.notation
   }
 }
