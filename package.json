@@ -4,7 +4,7 @@
   "description": "My webpack project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
@@ -19,6 +19,7 @@
     "css-loader": "^6.5.1",
     "html-webpack-plugin": "^5.5.0",
     "husky": ">=6",
+    "jest": "^27.3.1",
     "lint-staged": ">=10",
     "mini-css-extract-plugin": "^2.4.4",
     "prettier": "^2.4.1",
