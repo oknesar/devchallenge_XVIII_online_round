@@ -149,4 +149,28 @@ describe('Note', () => {
     const pause = new Note('_/1')
     expect(pause.getFrequency()).toBe(0)
   })
+
+  test('Equals', () => {
+    expect(Note.create('A4/1').isEqual(Note.create('A4/1'))).toBeTruthy()
+    expect(Note.create('A4/1').isEqual(Note.create('B3/1'))).toBeFalsy()
+    expect(Note.create('A4/1').isEqual(Note.create('A3/1'))).toBeFalsy()
+    expect(Note.create('A4/1').isEqual(Note.create('A4/2'))).toBeFalsy()
+
+    expect(Note.create('A4/1') === Note.create('A4/1')).toBeTruthy()
+  })
+
+  test('Invalid note should throw an error', () => {
+    expect(() => Note.create('#4/1')).toThrowError()
+    expect(() => Note.create('A#/1')).toThrowError()
+    expect(() => Note.create('A#4/')).toThrowError()
+    expect(() => Note.create('A#41')).toThrowError()
+
+    expect(() => Note.create('A%4/1')).toThrowError()
+    expect(() => Note.create('A#A/1')).toThrowError()
+    expect(() => Note.create('.#4/1')).toThrowError()
+    expect(() => Note.create('A#4/G')).toThrowError()
+
+    expect(() => Note.create('W#4/1')).toThrowError()
+    expect(() => Note.create('A#4/1.6')).toThrowError()
+  })
 })
