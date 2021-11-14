@@ -15,11 +15,11 @@ export default class Note {
   }
 
   static isNotationValid(notation: string) {
-    return /^(([CDEFGAB]#?\d)|_)\/\d\.?$/.test(notation)
+    return /^(([CDEFGAB]#?\d)|_)\/\d+\.?$/.test(notation)
   }
 
   constructor(private notation: string) {
-    assert(Note.isNotationValid(notation), 'Invalid note notation')
+    assert(Note.isNotationValid(notation), 'Invalid note notation ' + notation)
     const [name, length] = notation.split('/')
     this.name = name
     this.length = (1 / parseInt(length)) * (length.endsWith('.') ? 1.5 : 1)
