@@ -1,0 +1,151 @@
+@import 'reset';
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Road+Rage&display=swap');
+
+$background: #98c1d9;
+$accent: #3d5a80;
+$primary: #e0fbfc;
+$warn: #ee6c4d;
+$secondary: #293241;
+$text: #1d242f;
+
+*,
+label {
+  font-family: 'PT Sans', sans-serif;
+  color: $text;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $background;
+}
+
+label {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+input[type='text'],
+select {
+  border: none;
+  font-size: 1.1rem;
+  color: $accent;
+  padding: 0.2rem 0.3rem;
+}
+
+header {
+  background-color: $text;
+  h1 {
+    color: $primary;
+  }
+}
+
+.content {
+  max-width: 1024px;
+  width: 100%;
+}
+
+#timbre {
+  width: 8rem;
+}
+
+.flex {
+  display: flex;
+
+  &.col {
+    flex-direction: column;
+  }
+
+  &.justify {
+    &-center {
+      justify-content: center;
+    }
+    &-end {
+      justify-content: flex-end;
+    }
+  }
+  &.align {
+    &-center {
+      align-items: center;
+    }
+    &-end {
+      align-items: flex-end;
+    }
+  }
+}
+
+.grow {
+  &-0 {
+    flex-grow: 0;
+  }
+  &-1 {
+    flex-grow: 1;
+  }
+}
+
+.m {
+  &-t {
+    &-05 {
+      margin-top: 0.5rem;
+    }
+    &-1 {
+      margin-top: 1rem;
+    }
+  }
+  &-r {
+    &-05 {
+      margin-right: 0.5rem;
+    }
+    &-1 {
+      margin-right: 1rem;
+    }
+  }
+
+  &-b {
+    &-05 {
+      margin-bottom: 0.5rem;
+    }
+    &-1 {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.block {
+  border: 2px solid $accent;
+  padding: 1.5rem 2rem;
+}
+
+button,
+h1 {
+  font-family: 'Road Rage', cursive;
+}
+
+h1 {
+  font-size: 6rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  color: $primary;
+  background-color: $secondary;
+  padding: 0.9rem 1.2rem;
+  text-align: center;
+  min-width: 8rem;
+  border: none;
+  font-size: 1.6rem;
+}
+
+.player-control {
+}
+
+.player-adsr {
+  input[type='range'] {
+    writing-mode: bt-lr;
+    -webkit-appearance: slider-vertical;
+    width: 4rem;
+  }
+}
+
+.tracks {
+  margin-top: 1rem;
+}

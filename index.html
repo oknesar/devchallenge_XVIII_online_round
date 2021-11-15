@@ -1,12 +1,64 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Webpack App</title>
-    </head>
-    <body>
-        <h1>Hello world!</h1>
-        <h2>Tip: Check your console</h2>
-    </body>
-    
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Webpack App</title>
+  </head>
+  <body>
+    <header class="flex justify-center">
+      <div class="content">
+        <h1>EarsOut</h1>
+      </div>
+    </header>
+    <main class="flex justify-center m-t-1">
+      <div class="content">
+        <div class="flex">
+          <div class="block flex grow-1 justify-center align-center m-r-05">
+            <div class="grow-0">
+              <button class="btn play-pause">Play</button>
+              <button class="btn stop">Stop</button>
+            </div>
+          </div>
+          <div class="block m-r-05 flex col">
+            <label class="m-b-05" for="timbre">Timbre</label>
+            <select name="timbre" id="timbre">
+              <option value="sine">Sine</option>
+            </select>
+          </div>
+          <div class="block flex player-adsr">
+            <div class="flex col align-center">
+              <input id="attack" name="attack" type="range" min="0" max="2" step="0.1" />
+              <label class="m-t-05" for="attack">Attack</label>
+            </div>
+            <div class="flex col align-center">
+              <input id="delay" name="attack" type="range" min="0" max="2" step="0.1" />
+              <label class="m-t-05" for="delay">Delay</label>
+            </div>
+            <div class="flex col align-center">
+              <input id="sustain" name="attack" type="range" min="0" max="2" step="0.1" />
+              <label class="m-t-05" for="sustain">Sustain</label>
+            </div>
+            <div class="flex col align-center">
+              <input id="release" name="attack" type="range" min="0" max="2" step="0.1" />
+              <label class="m-t-05" for="release">Release</label>
+            </div>
+          </div>
+        </div>
+        <div class="block tracks">
+          <div class="flex align-center track m-b-1">
+            <label for="track1" class="m-r-1">#1</label>
+            <input
+              id="track1"
+              class="grow-1"
+              type="text"
+              value="E4/4 E4/4 E4/4 D#4/8. A#4/16 E4/4 D#4/8. A#4/16 E4/2 D5/4 D5/4 D5/4 D#5/8. A#4/16 F#4/4 D#4/8. A#4/16 E4/2"
+            />
+          </div>
+          <div class="flex justify-end">
+            <button class="btn">Add track</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
