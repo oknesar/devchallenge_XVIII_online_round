@@ -1,15 +1,18 @@
-# 🚀 Welcome to your new awesome project!
+# 🚀 Welcome 
 
-This project has been created using **webpack-cli**, you can now run
-
+Get started
 ```
-npm run build
+yarn
+yarn serve
 ```
 
-or
-
+Build
 ```
 yarn build
 ```
 
-to bundle your application
+You could open `dist/index.html` by browser  
+or run
+```
+npx serve -s dist
+```

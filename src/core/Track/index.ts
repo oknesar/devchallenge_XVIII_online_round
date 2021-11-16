@@ -14,7 +14,7 @@ export default class Track {
     return new this()
   }
 
-  static defaultBpm = 60
+  static defaultBpm = 100
   static defaultVolume = 0.6
 
   protected sequences: Sequence[] = []
@@ -23,6 +23,11 @@ export default class Track {
 
   addSequence(sequence: string | Sequence) {
     this.sequences.push(typeof sequence === 'string' ? new Sequence(sequence) : sequence)
+    return this
+  }
+
+  replaceSequences(sequence: string | Sequence) {
+    this.sequences = [typeof sequence === 'string' ? new Sequence(sequence) : sequence]
     return this
   }
 
@@ -40,6 +45,19 @@ export default class Track {
     return this.volume
   }
 
+  getCeilNoteDuration() {
+    return (60 / this.getBpm()) * 4
+  }
+
+  getLength() {
+    const ceilNoteDuration = this.getCeilNoteDuration()
+    return this.sequences.reduce(
+      (total, seq) =>
+        total + seq.reduce((seqTotal, note) => seqTotal + note.getLength() * ceilNoteDuration, 0),
+      0
+    )
+  }
+
   setVolume(volume: number) {
     assert(volume > 0 && volume <= 1, 'Expected volume between 0 and 1')
     this.volume = volume
@@ -48,7 +66,7 @@ export default class Track {
 
   [Symbol.iterator] = function* (this: Track): Generator<TrackItem> {
     let time = 0
-    const ceilNoteDuration = (60 / this.getBpm()) * 4
+    const ceilNoteDuration = this.getCeilNoteDuration()
     for (const sequence of this.sequences) {
       for (const note of sequence) {
         const noteDuration = note.getLength() * ceilNoteDuration

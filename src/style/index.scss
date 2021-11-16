@@ -25,11 +25,17 @@ label {
 }
 
 input[type='text'],
+input[type='number'],
 select {
   border: none;
   font-size: 1.1rem;
   color: $accent;
   padding: 0.2rem 0.3rem;
+  width: 100%;
+}
+
+input::placeholder {
+  color: lightgray;
 }
 
 header {
@@ -39,13 +45,13 @@ header {
   }
 }
 
+button[disabled] {
+  opacity: 0.6;
+}
+
 .content {
   max-width: 1024px;
   width: 100%;
-}
-
-#timbre {
-  width: 8rem;
 }
 
 .flex {
@@ -148,4 +154,8 @@ h1 {
 
 .tracks {
   margin-top: 1rem;
+}
+
+.pointer-events-none {
+  pointer-events: none;
 }

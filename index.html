@@ -15,47 +15,58 @@
         <div class="flex">
           <div class="block flex grow-1 justify-center align-center m-r-05">
             <div class="grow-0">
-              <button class="btn play-pause">Play</button>
-              <button class="btn stop">Stop</button>
+              <button id="play-pause" class="btn">Play</button>
+              <button id="stop" class="btn">Stop</button>
             </div>
           </div>
           <div class="block m-r-05 flex col">
-            <label class="m-b-05" for="timbre">Timbre</label>
-            <select name="timbre" id="timbre">
-              <option value="sine">Sine</option>
-            </select>
+            <div class="flex col m-b-1">
+              <label class="m-b-05" for="timbre">Timbre</label>
+              <select name="timbre" id="timbre"></select>
+            </div>
+            <div class="flex col">
+              <label class="m-b-05" for="bpm">BPM</label>
+              <input type="number" id="bpm" min="0" />
+            </div>
           </div>
-          <div class="block flex player-adsr">
+          <div id="adsr" class="block flex player-adsr">
             <div class="flex col align-center">
-              <input id="attack" name="attack" type="range" min="0" max="2" step="0.1" />
+              <input id="attack" name="attack" type="range" min="0" max="3" step="0.01" />
               <label class="m-t-05" for="attack">Attack</label>
             </div>
             <div class="flex col align-center">
-              <input id="delay" name="attack" type="range" min="0" max="2" step="0.1" />
-              <label class="m-t-05" for="delay">Delay</label>
+              <input id="decay" name="decay" type="range" min="0" max="3" step="0.01" />
+              <label class="m-t-05" for="decay">Decay</label>
             </div>
             <div class="flex col align-center">
-              <input id="sustain" name="attack" type="range" min="0" max="2" step="0.1" />
+              <input id="sustain" name="sustain" type="range" min="0" max="1" step="0.01" />
               <label class="m-t-05" for="sustain">Sustain</label>
             </div>
             <div class="flex col align-center">
-              <input id="release" name="attack" type="range" min="0" max="2" step="0.1" />
+              <input id="release" name="release" type="range" min="0" max="3" step="0.01" />
               <label class="m-t-05" for="release">Release</label>
             </div>
           </div>
         </div>
-        <div class="block tracks">
-          <div class="flex align-center track m-b-1">
-            <label for="track1" class="m-r-1">#1</label>
-            <input
-              id="track1"
-              class="grow-1"
-              type="text"
-              value="E4/4 E4/4 E4/4 D#4/8. A#4/16 E4/4 D#4/8. A#4/16 E4/2 D5/4 D5/4 D5/4 D#5/8. A#4/16 F#4/4 D#4/8. A#4/16 E4/2"
-            />
+        <div class="m-t-1 flex">
+          <input
+            type="range"
+            id="timeline"
+            class="grow-1 pointer-events-none"
+            value="0"
+            min="0"
+            step="0.01"
+          />
+        </div>
+        <div class="block m-t-1">
+          <div id="tracks">
+            <div class="flex align-center track m-b-1">
+              <label for="track1" class="m-r-1">#1</label>
+              <input id="track1" class="grow-1" type="text" placeholder="E4/4 E4/4 E4/4" />
+            </div>
           </div>
           <div class="flex justify-end">
-            <button class="btn">Add track</button>
+            <button id="add-track" class="btn">Add track</button>
           </div>
         </div>
       </div>
